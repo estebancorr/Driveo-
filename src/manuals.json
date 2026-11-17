@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "inventario-funcional",
+    "title": "Inventario funcional y evidencias",
+    "source": "docs/referencia/DRIVEO_registro_funcional_v0.1.md"
+  },
+  {
+    "slug": "cargos-y-relaciones",
+    "title": "Secciones, cargos y relaciones",
+    "source": "docs/referencia/DRIVEO_cargos_y_relaciones_v0.3.md"
+  },
+  {
+    "slug": "nomenclatura",
+    "title": "Nomenclatura del árbol",
+    "source": "docs/referencia/DRIVEO_nomenclatura_arbol_v0.3.md"
+  }
+]

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; object-src 'none'">
+<title>DRIVEO · Mapas funcionales</title>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="header-top"><div class="heading"><span class="eyebrow">DATSOFT · DRIVEO</span><h1>Mapas funcionales</h1></div>
+  <nav id="kinds" aria-label="Tipo de mapa"></nav>
+  <a class="guide-link" href="manuales/index.html" target="_blank" rel="noopener">Manual funcional ↗</a><button id="show-legend" type="button" class="guide-link">Códigos y relaciones</button></div>
+  <div class="toolbar">
+    <label>Vista<select id="audience"><option value="interno">Arquitectura interna</option><option value="operarios">Operarios · cuenta actual</option></select></label>
+    <label class="page-control">Página o sección<select id="page"></select></label>
+    <label>Acción del clic<select id="click-action"><option value="select">Seleccionar elemento</option><option value="open">Clic abre DRIVEO</option></select></label>
+    <div class="zoom-controls" aria-label="Controles de zoom"><button id="zoom-out" type="button" aria-label="Alejar">−</button><output id="zoom-label">100%</output><button id="zoom-in" type="button" aria-label="Acercar">+</button><button id="fit" type="button">Ajustar</button><button id="actual" type="button" title="Tamaño original del diagrama">100%</button></div>
+    <button id="toggle-info" type="button" aria-expanded="true" aria-controls="inspector">Detalle</button>
+    <button id="fullscreen" type="button" aria-pressed="false" title="Ampliar mapa a pantalla completa. Esc permite salir.">⛶ Pantalla completa</button>
+  </div>
+  <div class="hint"><span>Arrastra para mover · Rueda para zoom · Doble clic para abrir DRIVEO</span><span id="filter-note">Parámetros independientes por tipo de mapa</span></div>
+</header>
+<main class="workspace" id="workspace">
+  <div class="viewport" id="viewport" tabindex="0" role="region" aria-label="Mapa: arrastrar para desplazarse y usar la rueda para ampliar">
+    <div id="map-layer"></div>
+    <div id="map-caption" class="map-caption"></div>
+  </div>
+  <aside id="inspector" aria-label="Detalle del elemento seleccionado">
+    <div class="inspector-heading"><h2>Elemento seleccionado</h2><button id="clear-selection" type="button" title="Quitar selección" aria-label="Quitar selección">×</button></div>
+    <div id="empty-selection"><p>Selecciona un área, módulo, función o etiqueta de relación del mapa.</p><p class="muted">Verás una descripción de su propósito antes de abrir DRIVEO. Las referencias de diseño permanecen identificadas como pendientes.</p></div>
+    <div id="selection-details" hidden>
+      <span id="selected-code" class="code-label"></span><h3 id="selected-name"></h3><p id="selected-kind" class="muted"></p>
+      <p id="selected-description" class="selected-description"></p>
+      <div class="selection-actions"><a id="open-erp" class="primary-link" target="_blank" rel="noopener noreferrer" hidden>Abrir en DRIVEO ↗</a><button id="jump-section" type="button" hidden>Ir a la sección relacionada</button><a id="show-erp-address" target="_blank" rel="noopener noreferrer" hidden>Ver dirección del sistema ↗</a></div>
+      <p id="no-route" class="notice" hidden>Sin ruta de acceso confirmada.</p>
+      <dl id="fields"></dl>
+      <div id="children-block" hidden><h4>Elementos del árbol</h4><div id="children"></div></div>
+    </div>
+    <div class="scope-note"><strong>Alcance del levantamiento</strong><p>Las referencias observadas no prueban automatismos. Los cargos son propuestos para validar con Datsoft. Abrir DRIVEO requiere sesión propia y permisos.</p><p>Las descripciones orientan sobre el propósito; la evidencia indica qué se comprobó.</p></div>
+  </aside>
+</main>
+<div class="statusbar"><span id="status" aria-live="polite">Cargando mapas…</span><span>17/11/2026 · v1.1 · 11 áreas · 34 módulos</span></div>
+<dialog id="legend"><div class="legend-heading"><h2>Códigos y relaciones</h2><button id="close-legend" type="button" aria-label="Cerrar explicación">×</button></div>
+<p><strong>R = relación funcional.</strong> El número identifica una conexión en este mapa: no es un módulo, un permiso ni un paso de ejecución.</p>
+<p><strong>R02 · # Orden de compra</strong> significa que la recepción referencia la orden de compra. <strong>#</strong> quiere decir «número de documento». El <strong>02</strong> identifica la relación, no el número real de la orden.</p>
+<p><strong>R04</strong> vincula el pedido comercial con su entrega. <strong>F</strong> identifica un flujo documental y conserva el número de la relación de base. Los códigos repetidos enlazan puntos alejados; un sufijo distingue ramales de una misma relación.</p>
+<p><strong>E</strong> identifica una pantalla inspeccionada; <strong>S01–S06</strong>, una sección. Los códigos como <strong>Org.1.1</strong> indican la posición del módulo en el árbol.</p>
+<div class="relation-colors"><span>Azul: referencia observada</span><span>Morado: inferencia</span><span>Ocre: pendiente</span></div>
+<p class="muted">Las líneas no prueban integraciones automáticas. Un cruce sin punto no añade otra relación. Selecciona una relación de la lista para consultar su evidencia y limitaciones.</p>
+<div id="relation-list"></div><a href="guia.html" target="_blank" rel="noopener">Guía completa ↗</a></dialog>
+<script>const MODEL=/*__DATA__*/;
+/*__JS__*/</script>
+</body>
+</html>
